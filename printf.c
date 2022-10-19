@@ -67,7 +67,7 @@ int print_string(char *parameter_content)
 int _printf(const char *format, ...)
 {
 	int char_counter = 0;
-	int char_param_counter = 0;
+	int char_param_ctr = 0;
 	int len = 0;
 	va_list parameter_list;
 
@@ -88,8 +88,7 @@ int _printf(const char *format, ...)
 					len++;
 					break;
 				case 's':
-					if (NULL_test(va_arg(parameter_list, char*),
-								&char_param_counter) == -1)
+					if (NULL_test(va_arg(parameter_list, char*), &char_param_ctr) == -1)
 						return (-1);
 					char_counter++;
 					len += 2;
@@ -106,5 +105,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(parameter_list);
-	return ((char_counter - len) + char_param_counter);
+	return ((char_counter - len) + char_param_ctr);
 }
