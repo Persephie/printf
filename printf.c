@@ -99,5 +99,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(parameter_list);
 	return ((char_counter - len) + char_param_counter);
-
 }
