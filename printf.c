@@ -90,7 +90,7 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar(format[char_counter]);
 					char_counter++;
-					len++;
+					len += 2;
 					break;
 				default:
 					_putchar(format[char_counter]);
@@ -100,4 +100,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(parameter_list);
 	return ((char_counter - len) + char_param_counter);
+
 }
