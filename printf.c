@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 	va_list parameter_list;
 
 	va_start(parameter_list, format);
-	for (char_counter = 0; format[char_counter] != '\0'; char_counter++)
+	for (char_counter = 0; format && format[char_counter] != '\0'; char_counter++)
 	{
 		if (format[char_counter] != '%')
 			_putchar(format[char_counter]);
@@ -68,7 +68,8 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					parameter_content = va_arg(parameter_list, char*);
-					char_param_counter += print_string(parameter_content);
+					if (parameter_content != NULL)
+						char_param_counter += print_string(parameter_content);
 					char_counter++;
 					len += 2;
 					break;
