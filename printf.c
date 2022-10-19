@@ -29,21 +29,12 @@ int _putchar(char c)
 int NULL_test(char *parameter_content, int *char_param_counter)
 {
 	if (parameter_content != NULL)
-		return (*char_param_counter += print_string(parameter_content));
+	{
+		*char_param_counter += print_string(parameter_content);
+		return (0);
+	}
 	else
 		return (-1);
-}
-
-/**
- * end_with_error - returns the error number of a null string
- *
- * @error_number: the error number
- *
- * Return: Always error number
- */
-int end_with_error(int error_number)
-{
-	return (error_number);
 }
 
 /**
@@ -97,8 +88,9 @@ int _printf(const char *format, ...)
 					len++;
 					break;
 				case 's':
-					end_with_error(NULL_test(va_arg(parameter_list, char*),
-								&char_param_counter));
+					if (NULL_test(va_arg(parameter_list, char*),
+								&char_param_counter) == -1)
+						return (-1);
 					char_counter++;
 					len += 2;
 					break;

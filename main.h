@@ -5,7 +5,7 @@
 int _printf(const char *format, ...);
 int print_string(char *parameter_content);
 int _putchar(char c);
-void NULL_test(char *parameter_content, int *char_param_counter);
+int NULL_test(char *parameter_content, int *char_param_counter);
 int end_with_error(int error_number);
 
 #endif
