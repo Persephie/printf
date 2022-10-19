@@ -90,7 +90,7 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar(format[char_counter]);
 					char_counter++;
-					format[char_counter + 1] != '%' ? len++ : (len += 2);	
+					format[char_counter + 1] != '%' ? len++ : (len += 2);
 					break;
 				default:
 					_putchar(format[char_counter]);
@@ -101,10 +101,4 @@ int _printf(const char *format, ...)
 	va_end(parameter_list);
 	return ((char_counter - len) + char_param_counter);
 
-}
-int main(void)
-{
-	int num = _printf("Let's try to printf a simple sentence %s %r.\n", "bravin");
-	printf("%d\n", num);
-	return (0);
-}
+};
