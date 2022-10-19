@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * _putchar - printfs one character
@@ -16,6 +17,20 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
+/**
+ * NULL_test - test whether the value of our string literals is NULL
+ *
+ * @parameter_content: the string we want to check
+ * @char_param_counter: pointer to number of characters in the string
+ *
+ * Return: Always return nothing
+ */
+
+void NULL_test(char *parameter_content, int *char_param_counter)
+{
+	if (parameter_content != NULL)
+		*char_param_counter += print_string(parameter_content);
+}
 
 /**
  * print_string - prints contents of a string
@@ -47,12 +62,13 @@ int print_string(char *parameter_content)
 int _printf(const char *format, ...)
 {
 	int char_counter = 0;
-	char *parameter_content;
 	int char_param_counter = 0;
 	int len = 0;
 	va_list parameter_list;
 
 	va_start(parameter_list, format);
+	if (format == NULL)
+		return (-1);
 	for (char_counter = 0; format && format[char_counter] != '\0'; char_counter++)
 	{
 		if (format[char_counter] != '%')
@@ -67,9 +83,7 @@ int _printf(const char *format, ...)
 					len++;
 					break;
 				case 's':
-					parameter_content = va_arg(parameter_list, char*);
-					if (parameter_content != NULL)
-						char_param_counter += print_string(parameter_content);
+					NULL_test(va_arg(parameter_list, char*), &char_param_counter);
 					char_counter++;
 					len += 2;
 					break;
