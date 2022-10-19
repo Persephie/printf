@@ -30,6 +30,8 @@ void NULL_test(char *parameter_content, int *char_param_counter)
 {
 	if (parameter_content != NULL)
 		(*char_param_counter += print_string(parameter_content));
+	else
+		*char_param_counter = -1;
 }
 
 /**
@@ -67,7 +69,8 @@ int _printf(const char *format, ...)
 	va_list parameter_list;
 
 	va_start(parameter_list, format);
-	
+	if (format != NULL)
+		return (-1);
 	for (char_counter = 0; format && format[char_counter] != '\0'; char_counter++)
 	{
 		if (format[char_counter] != '%')
