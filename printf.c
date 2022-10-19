@@ -30,8 +30,6 @@ void NULL_test(char *parameter_content, int *char_param_counter)
 {
 	if (parameter_content != NULL)
 		(*char_param_counter += print_string(parameter_content));
-	else
-		exit(-1);
 }
 
 /**
