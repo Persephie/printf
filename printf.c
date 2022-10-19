@@ -80,7 +80,7 @@ int _printf(const char *format, ...)
 				case 'c':
 					_putchar(va_arg(parameter_list, int));
 					char_counter++;
-					len ++;
+					len++;
 					break;
 				case 's':
 					NULL_test(va_arg(parameter_list, char*), &char_param_counter);
