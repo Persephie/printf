@@ -34,7 +34,7 @@ void NULL_test(char *parameter_content, int *char_param_counter)
 	}
 	else
 	{
-		parameter_content = "(nil)";
+		parameter_content = "";
 		*char_param_counter += print_string(parameter_content);
 	}
 }
@@ -75,7 +75,7 @@ int _printf(const char *format, ...)
 
 	va_start(parameter_list, format);
 	if (format == NULL)
-		return (0);
+		return (-1);
 	for (char_counter = 0; format && format[char_counter] != '\0'; char_counter++)
 	{
 		if (format[char_counter] != '%')
