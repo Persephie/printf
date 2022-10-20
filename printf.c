@@ -73,9 +73,9 @@ int _printf(const char *format, ...)
 	int len = 0;
 	va_list parameter_list;
 
-	va_start(parameter_list, format);
-	if (format == NULL)
+	if (format == NULL || parameter_list == NULL)
 		return (-1);
+	va_start(parameter_list, format);
 	for (char_counter = 0; format && format[char_counter] != '\0'; char_counter++)
 	{
 		if (format[char_counter] != '%')
