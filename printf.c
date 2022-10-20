@@ -75,7 +75,7 @@ int _printf(const char *format, ...)
 
 	va_start(parameter_list, format);
 	if (format == NULL)
-		cahr_param_ctr += print_string("(null)");
+		return (-1);
 	for (char_counter = 0; format && format[char_counter] != '\0'; char_counter++)
 	{
 		if (format[char_counter] != '%')
