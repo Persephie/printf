@@ -26,15 +26,17 @@ int _putchar(char c)
  * Return: Always return nothing
  */
 
-int NULL_test(char *parameter_content, int *char_param_counter)
+void NULL_test(char *parameter_content, int *char_param_counter)
 {
 	if (parameter_content != NULL)
 	{
 		*char_param_counter += print_string(parameter_content);
-		return (0);
 	}
 	else
-		return (-1);
+	{
+		parameter_content = "(nil)";
+		*char_param_counter += print_string(parameter_content);
+	}
 }
 
 /**
@@ -73,7 +75,7 @@ int _printf(const char *format, ...)
 
 	va_start(parameter_list, format);
 	if (format == NULL)
-		return (-1);
+		return (0);
 	for (char_counter = 0; format && format[char_counter] != '\0'; char_counter++)
 	{
 		if (format[char_counter] != '%')
@@ -88,8 +90,7 @@ int _printf(const char *format, ...)
 					len++;
 					break;
 				case 's':
-					if (NULL_test(va_arg(parameter_list, char*), &char_param_ctr) == -1)
-						return (-1);
+					NULL_test(va_arg(parameter_list, char*), &char_param_ctr);
 					char_counter++;
 					len += 2;
 					break;
