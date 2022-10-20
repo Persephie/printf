@@ -4,7 +4,7 @@
  * get_precision - gets the precision from the format string
  * @s: the format string
  * @ap: the argument pointer
- * @params: the parameters struct 
+ * @params: the parameters struct
  * Return: new pointer
 */
 
