@@ -28,8 +28,4 @@ In the Example print the value of text with %s give the format of text.
 .IP %i
 - prints integer number.
 
-.SH SEE ALSO
-.I printf (3)
-.SH AUTHOR
-Maureen
-Bravin 
+
