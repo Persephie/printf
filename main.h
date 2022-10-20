@@ -1,13 +1,22 @@
-#ifndef PRINT_F
-#define PRINT_F
+#ifndef _PRINTF_H_
+#define _PRINTF_H_
 
+#define BUFSIZE 1024
+
+/* Importing Libraries */
 
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
-/* Definitions of types */
+/* Type Definitions */
+
+/**
+ * struct printer - structure for printing various types
+ * @symbol: type to print
+ * @func_t: function to print
+ */
 
 typedef struct printer
 {
@@ -15,14 +24,8 @@ typedef struct printer
 	int (*func_t)(va_list);
 } printer_t;
 
-/* prototypes */
+/* Function Prototypes */
 
-int _printf(const char *format, ...);
-int print_string(char *parameter_content);
-int _putchar(char c);
-void NULL_test(char *parameter_content, int *char_param_counter);
-int end_with_error(int error_number);
-void test_null_char(char null_character, int *char_param_counter);
 int _write(char c);
 int _printf(const char *format, ...);
 int print_char(va_list arguments);
@@ -42,5 +45,5 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 char *rev_str(char *s);
 int print_reversed(va_list arg);
 int (*func_t)(va_list);
-#endif
 
+#endif /* _PRINTF_H_ */
