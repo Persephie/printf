@@ -35,6 +35,7 @@ void NULL_test(char *parameter_content, int *char_param_counter)
 	else
 	{
 		parameter_content = "(null)";
+		*char_param_counter += print_string(parameter_content);
 	}
 }
 
