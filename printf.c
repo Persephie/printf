@@ -108,9 +108,3 @@ int _printf(const char *format, ...)
 	va_end(parameter_list);
 	return ((char_counter - len) + char_param_ctr);
 }
-int main(void)
-{
-	int num = _printf("My name is %s %s %s %% is a %s", "Bravin", NULL, "Atonya", "percentage sign");
-	printf("%d\n", num);
-	return (0);
-}
