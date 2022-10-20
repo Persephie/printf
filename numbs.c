@@ -20,8 +20,8 @@ char *convert(long int num, int base, int flags, params_t *params)
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
-		n = -num;
 		sign = '-';
+		n = -num;
 	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];

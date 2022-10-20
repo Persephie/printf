@@ -21,9 +21,9 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"x", print_hex},
 		{"X", print_HEX},
 		{"p", print_address},
-		{"S", print_S},
 		{"r", print_rev},
 		{"R", print_rot13},
+		{"S", print_S},
 		{NULL, NULL}
 	};
 
