@@ -56,7 +56,7 @@ void test_null_char(char null_character, int *char_param_counter)
 	}
 	else
 	{
-		*char_param_counter += print_string("") - 1;
+		*char_param_counter += print_string("");
 	}
 }
 
