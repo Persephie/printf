@@ -85,7 +85,7 @@ int _printf(const char *format, ...)
 			switch (format[char_counter + 1])
 			{
 				case 'c':
-					_putchar(va_arg(parameter_list, int), &char_param_ctr);
+					_putchar(va_arg(parameter_list, int));
 					char_counter++;
 					len++;
 					break;
@@ -107,4 +107,10 @@ int _printf(const char *format, ...)
 	}
 	va_end(parameter_list);
 	return ((char_counter - len) + char_param_ctr);
+}
+int main(void)
+{
+	int num = _printf("My name is %s %s %s %% is a %s", "Bravin", NULL, "Atonya", "percentage sign");
+	printf("%d\n", num);
+	return (0);
 }
