@@ -40,6 +40,27 @@ void NULL_test(char *parameter_content, int *char_param_counter)
 }
 
 /**
+ * test_null_char - test whether the value of our string literals is NULL
+ *
+ * @null_character: character we want to check
+ * @char_param_counter: pointer to number of characters in the string
+ *
+ * Return: Always return nothing
+ */
+
+void test_null_char(char null_character, int *char_param_counter)
+{
+	if (null_character != 0)
+	{
+		_putchar(null_character);
+	}
+	else
+	{
+		*char_param_counter += print_string("(null)") - 1;
+	}
+}
+
+/**
  * print_string - prints contents of a string
  *
  * @parameter_content: the parameter that holds the string
@@ -85,7 +106,7 @@ int _printf(const char *format, ...)
 			switch (format[char_counter + 1])
 			{
 				case 'c':
-					_putchar(va_arg(parameter_list, int));
+					test_null_char(va_arg(parameter_list, int), &char_param_ctr);
 					char_counter++;
 					len++;
 					break;
